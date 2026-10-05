@@ -1,7 +1,7 @@
 class NudoxPreview < Formula
   desc "Local-first versioned code intelligence checkpoint"
   homepage "https://nudox.org"
-  url "https://github.com/nudoxorg/Backend/releases/download/checkpoint-20261005-9d29d53046/Nudox-preview-arm64.tar.gz"
+  url "https://github.com/nudoxorg/Backend/releases/download/checkpoint-20261005-9d29d53046/Nudox-preview-arm64.tar.gz?sha256=09ba4990d2b0bf45d95d341d2ddd546ffe63224bbfa609715ce7dfe9212ed34b"
   version "2026.10.05.9d29d53046"
   sha256 "09ba4990d2b0bf45d95d341d2ddd546ffe63224bbfa609715ce7dfe9212ed34b"
   depends_on arch: :arm64
