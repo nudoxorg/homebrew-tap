@@ -8,7 +8,14 @@ class NudoxPreview < Formula
   depends_on macos: :sonoma
 
   def install
-    libexec.install "Nudox.app"
+    if (buildpath/"Nudox.app").directory?
+      libexec.install "Nudox.app"
+    elsif (buildpath/"Contents/Info.plist").file?
+      (libexec/"Nudox.app").mkpath
+      (libexec/"Nudox.app").install "Contents"
+    else
+      odie "The checkpoint archive does not contain the expected app bundle"
+    end
     %w[backend-cli backend-mcp backend-locald].zip(%w[nudox nudox-mcp nudox-locald]).each do |binary, command|
       bin.install_symlink libexec/"Nudox.app/Contents/MacOS/#{binary}" => command
     end
